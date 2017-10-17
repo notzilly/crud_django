@@ -2,23 +2,29 @@
 {% load staticfiles %}
 <html>
     <head>
-        <title>PayLess' Blog</title>
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
-        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
-        <link href="http://fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+		<title>PayLess' Blog</title>
+		<link rel="icon" type="image/png" href="https://cdn2.iconfinder.com/data/icons/new-year-resolutions/64/resolutions-08-128.png">
+
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+		<link rel="stylesheet" href="{% static 'css/blog.css' %}">
+		
+		<link href="//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
     	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     </head>
 	<body>
 		<div class="page-header">
-			{# if user.is_authenticated #}
-				{# <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a> #}
-			{# endif #}
-	        <h1><a href="/">PayLess' Blog from Django Girls tutorial</a></h1>
+			{% comment %} {% if user.is_authenticated %}
+				{% <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a> %}
+			{% endif %} {% endcomment %}
+			<h1>
+				<a href="/"><img src="https://cdn2.iconfinder.com/data/icons/new-year-resolutions/64/resolutions-08-128.png" alt="Icon"></a>PayLess' Blog from Django Girls
+			</h1>
 		</div>
         <div class="content container">
             <div class="row">
-                <div class="col-md-8">
+                <div class="col-md-10 col-md-offset-1">
 					{% block content %}
 					{% endblock %}
 				</div>

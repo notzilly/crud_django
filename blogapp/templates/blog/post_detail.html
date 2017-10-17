@@ -8,11 +8,17 @@
             </div>
         {% endif %}
         {% if user.is_authenticated %}
-            <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
-            <form id="form" method="post" action="{% url 'post_delete' pk=post.pk %}">
-                {% csrf_token %}
-                <a class="btn btn-danger confirm-delete"><span class="glyphicon glyphicon-remove"></span></a> 
-            </form>
+            <div class="col-md-12">
+                <div class="col-md-2 col-md-offset-8">
+                    <a class="btn btn-default btn-block" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span> Editar</a>
+                </div>
+                <div class="col-md-2">
+                    <form id="form" method="post" action="{% url 'post_delete' pk=post.pk %}">
+                        {% csrf_token %}
+                        <a class="btn btn-danger btn-block confirm-delete"><span class="glyphicon glyphicon-remove"></span> Deletar</a> 
+                    </form>
+                </div>
+            </div>
 		{% endif %}
 		<h1>{{ post.title }}</h1>
         <p>{{ post.text|linebreaks }}</p>
